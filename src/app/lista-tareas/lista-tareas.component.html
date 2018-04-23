@@ -1,0 +1,12 @@
+<h1>Lista tareas</h1>
+<div>
+  <input type="text" #input>
+  <button type="button" (click)="guardar(input.value)">Añadir</button>
+</div>
+<ul>
+  <li *ngFor="let tarea of tareas; let i = index">
+    <span [ngClass]="{ tachado: tarea.hecha }">{{ tarea.nombre }}</span>
+    <input type="checkbox" (click)="actualizar(i, tarea.hecha)" [checked]="tarea.hecha">
+    <button type="button" (click)="eliminar(i)">&times;</button>
+  </li>
+</ul>
